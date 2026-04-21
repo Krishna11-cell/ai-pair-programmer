@@ -1,6 +1,5 @@
 import { createEmbedding } from "./embedding";
 import { addToStore, searchStore, getStoreSize } from "./vectorStore";
-
 export interface StoredIssue {
     message: string;
     suggestion: string;
@@ -27,7 +26,7 @@ export function getRelevantMemory(code: string): string[] {
 // Format memory for prompt injection
 export function formatMemoryForPrompt(memories: string[]): string {
     if (memories.length === 0) {
-        return "No past issues recorded yet.";
+        return "No past mistakes recorded yet. Analyze code normally.";
     }
 
     return memories

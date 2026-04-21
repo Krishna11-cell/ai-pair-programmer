@@ -33,15 +33,18 @@ export function activate(context: vscode.ExtensionContext) {
 
     // File save listener
     const saveListener = vscode.workspace.onDidSaveTextDocument(async (document) => {
+        console.log("🔥 File saved:", document.fileName);
+
         if (!SUPPORTED_LANGUAGES.includes(document.languageId)) {
             return;
         }
-
+       console.log("✅ Supported language:", document.languageId);
         const code = document.getText();
         if (code.trim().length < 20) {
             return;
         }
 
+        console.log("🚀 Triggering review");
         // ✅ Debounced call (fixed)
         getDebouncedReview(document)();
     });
