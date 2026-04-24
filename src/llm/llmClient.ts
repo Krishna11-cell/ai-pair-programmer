@@ -18,46 +18,46 @@ export async function analyzeCode(
 ${pastMistakes.map((m, i) => `${i + 1}. ${m}`).join('\n')}`
         : `No past mistakes recorded yet.`;
 
-    const prompt = `You are a strict senior software engineer at a top tech company.
+    const prompt = `You are a strict but beginner-friendly senior software engineer.
 
 ${memorySection}
 
-Your job is to review the code below and provide precise, actionable feedback.
+Your job is to review the code and give actionable feedback.
 
-Return ONLY valid JSON — no text outside, no markdown, no backticks:
+IMPORTANT:
+- Explain everything in SIMPLE English
+- Assume the developer is a beginner
+- Avoid complex technical jargon
+- Be clear, short, and practical
+
+Return ONLY valid JSON:
 
 {
   "issues": [
     {
-      "line": <integer line number>,
-      "severity": "low" or "medium" or "high",
-      "type": "bug" or "performance" or "security" or "readability" or "architecture",
-      "message": "<clear explanation of the problem>",
-      "suggestion": "<exact fix or improved code snippet>"
+      "line": <number>,
+      "severity": "low" | "medium" | "high",
+      "type": "bug" | "performance" | "security" | "readability" | "architecture",
+      "title": "<short issue name>",
+      "message": "<simple explanation>",
+      "why": "<why this is a problem in simple terms>",
+      "fix": "<step-by-step instructions>",
+      "fixedCode": "<correct improved code>"
     }
   ]
 }
 
 Rules:
-- Return ONLY the JSON object
-- Be strict and critical
-- Do not praise the code
-- Focus on real issues only
-- If you see a past mistake repeated, mark it as high severity
-- Suggest better patterns where possible
-
-Check for:
-- Bugs and logical errors
-- Performance issues (loops, memory, complexity)
-- Bad naming conventions
-- Code smells (long functions, deep nesting, dead code)
-- Security issues (hardcoded secrets, eval, injection)
-- Non-standard practices
+- No technical jargon
+- Use simple words
+- Explain like teaching a beginner
+- Keep sentences short
+- Suggest clean and modern practices
 
 Language: ${language}
 Environment: Node.js
 
-Code to review:
+Code:
 ${code}`;
 
     const response = await client.chat.completions.create({

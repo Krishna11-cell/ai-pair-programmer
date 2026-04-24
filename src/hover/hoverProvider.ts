@@ -1,66 +1,53 @@
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
+import { getAIReview, Issue } from "../core/reviewer";
 
-export function createHoverProvider(): vscode.Disposable {
-    return vscode.languages.registerHoverProvider(
-        ['javascript', 'typescript', 'python', 'java', 'cpp', 'c'],
-        {
-            provideHover(document, position) {
+export function activateHover(context: vscode.ExtensionContext) {
 
-                // Get all diagnostics for this file
-                const diagnostics = vscode.languages
-                    .getDiagnostics(document.uri)
-                    .filter(d => d.source === 'AI Pair Programmer');
+    context.subscriptions.push(
+        vscode.languages.registerHoverProvider("*", {
 
-                // Find diagnostic at current cursor position
-                const diagnostic = diagnostics.find(d =>
-                    d.range.contains(position)
-                );
+            async provideHover(document, position) {
 
-                if (!diagnostic) {
-                    return null;
+                const language = document.languageId;
+                const fullCode = document.getText();
+
+                const issues: Issue[] = await getAIReview(fullCode, language);
+
+                const line = position.line + 1;
+                const issue = issues.find(i => i.line === line);
+
+                if (!issue) {
+                    return;
                 }
 
-                // Parse the message — format is:
-                // "[TYPE] message — Fix: suggestion"
-                const fullMessage = diagnostic.message;
+                const md = new vscode.MarkdownString();
+                md.isTrusted = true;
 
-                // Build a rich markdown tooltip
-                const markdown = new vscode.MarkdownString();
-                markdown.isTrusted = true;
-                markdown.supportHtml = true;
+                // 🔥 Title
+                md.appendMarkdown(`### ⚠ ${issue.title || "Issue"}\n\n`);
 
-                // Severity icon
-                const icon = diagnostic.severity === vscode.DiagnosticSeverity.Error
-                    ? '$(error)'
-                    : diagnostic.severity === vscode.DiagnosticSeverity.Warning
-                    ? '$(warning)'
-                    : '$(info)';
+                // 🔹 Explanation
+                md.appendMarkdown(`**Explanation:**\n${issue.message}\n\n`);
 
-                // Split message and fix suggestion
-                const parts = fullMessage.split(' — Fix: ');
-                const message = parts[0] || fullMessage;
-                const fix = parts[1] || null;
-
-                // Build tooltip content
-                markdown.appendMarkdown(`**${icon} AI Pair Programmer**\n\n`);
-                markdown.appendMarkdown(`---\n\n`);
-                markdown.appendMarkdown(`${message}\n\n`);
-
-                if (fix) {
-                    markdown.appendMarkdown(`**Suggested fix:**\n\n`);
-                    markdown.appendMarkdown(`\`\`\`\n${fix}\n\`\`\`\n\n`);
+                // 🔹 Why
+                if (issue.why) {
+                    md.appendMarkdown(`**Why this matters:**\n${issue.why}\n\n`);
                 }
 
-                // Add severity badge
-                const severityLabel =
-                    diagnostic.severity === vscode.DiagnosticSeverity.Error ? '🔴 High severity' :
-                    diagnostic.severity === vscode.DiagnosticSeverity.Warning ? '🟡 Medium severity' :
-                    '🔵 Low severity';
+                // 🔹 Fix steps
+                if (issue.fix) {
+                    md.appendMarkdown(`**How to fix:**\n${issue.fix}\n\n`);
+                }
 
-                markdown.appendMarkdown(`*${severityLabel}*`);
+                // 🔹 Code Fix
+                if (issue.fixedCode) {
+                    md.appendMarkdown(
+                        `**✔ Suggested Fix:**\n\`\`\`${language}\n${issue.fixedCode}\n\`\`\`\n`
+                    );
+                }
 
-                return new vscode.Hover(markdown, diagnostic.range);
+                return new vscode.Hover(md);
             }
-        }
+        })
     );
 }

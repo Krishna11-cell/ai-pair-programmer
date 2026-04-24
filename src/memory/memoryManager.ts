@@ -1,6 +1,7 @@
 import { createEmbedding } from "./embedding";
 import { addToStore, searchStore, getStoreSize } from "./vectorStore";
 export interface StoredIssue {
+    line: number;   // ✅ ADD THIS
     message: string;
     suggestion: string;
     type: string;
