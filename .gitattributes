@@ -1,0 +1,15 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Source files
+*.ts text diff=typescript
+*.js text diff=javascript
+*.json text
+*.md text
+*.yml text
+*.mjs text
+
+# Binary files
+*.png binary
+*.jpg binary
+*.ico binary

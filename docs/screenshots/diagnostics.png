@@ -1,0 +1,8 @@
+AI Pair Programmer - Diagnostics Overview Screenshot
+
+This image shows the VS Code "Problems" panel displaying all issues
+found by the AI Pair Programmer extension, grouped by file with
+severity indicators (Error, Warning, Information).
+
+Replace this placeholder with an actual screenshot.
+To capture: View → Problems → Take screenshot showing the list of diagnostics.

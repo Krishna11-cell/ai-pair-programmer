@@ -1,7 +1,7 @@
 {
   "name": "ai-pair-programmer",
   "displayName": "ai-pair-programmer",
-  "description": "AI code reviewer",
+  "description": "Built an AI-powered pair programmer using Groq LLM and AST analysis for VS Code capable of automatically detecting bugs, security risks, and bad practices across 6 programming languages with inline diagnostics, hover explanations, and one-click Quick Fixes.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.110.0"
@@ -40,7 +40,6 @@
     "typescript-eslint": "^8.56.1"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.90.0",
     "@babel/parser": "^7.29.2",
     "@babel/traverse": "^7.29.0",
     "dotenv": "^17.4.2",

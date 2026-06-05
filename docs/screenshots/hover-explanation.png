@@ -1,0 +1,12 @@
+AI Pair Programmer - Hover Explanation Screenshot
+
+This image shows the hover tooltip that appears when hovering over a flagged line.
+The tooltip displays:
+- Issue title (e.g., "Loose equality operator")
+- Explanation of the problem
+- Why it matters
+- Step-by-step fix instructions
+- AI-generated fixed code snippet
+
+Replace this placeholder with an actual screenshot.
+To capture: Hover over an underlined line → Take screenshot of the tooltip.

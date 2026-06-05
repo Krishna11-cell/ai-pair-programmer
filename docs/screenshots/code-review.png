@@ -1,0 +1,8 @@
+AI Pair Programmer - Code Review Screenshot
+
+This image shows the VS Code editor with AI Pair Programmer active.
+A JavaScript file is open with red/yellow/blue underlines on code lines
+indicating detected issues. The status bar shows "AI Review complete — 3 issue(s) found".
+
+Replace this placeholder with an actual screenshot of the extension in action.
+To capture: Open VS Code → Save a .js file → Take screenshot showing the diagnostics.
