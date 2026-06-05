@@ -178,6 +178,17 @@ function runStaticChecks(
                 "Avoid eval() — security risk.",
                 vscode.DiagnosticSeverity.Error);
         }
+        // 🔴 Hardcoded password / secret detection
+if (/(password|passwd|secret|apiKey|token)\s*=\s*["'][^"']+["']/i.test(lineText)) {
+    addDiagnostic(
+        document,
+        diagnostics,
+        lineIndex,
+        lineText.indexOf('='),
+        "Hardcoded sensitive value detected (password/API key). Move it to environment variables.",
+        vscode.DiagnosticSeverity.Error
+    );
+}
     });
 }
 
