@@ -13,6 +13,9 @@
     <a href="https://github.com/Krishna11-cell/ai-pair-programmer">
       <img src="https://img.shields.io/github/stars/Krishna11-cell/ai-pair-programmer" alt="Stars">
     </a>
+    <a href="https://github.com/Krishna11-cell/ai-pair-programmer/actions/workflows/ci.yml">
+      <img src="https://github.com/Krishna11-cell/ai-pair-programmer/actions/workflows/ci.yml/badge.svg" alt="CI">
+    </a>
     <a href="https://code.visualstudio.com/api">
       <img src="https://img.shields.io/badge/VS%20Code-Extension-007ACC?logo=visual-studio-code" alt="VS Code Extension">
     </a>
