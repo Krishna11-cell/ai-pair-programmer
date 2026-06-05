@@ -2,7 +2,15 @@
   "name": "ai-pair-programmer",
   "displayName": "ai-pair-programmer",
   "description": "Built an AI-powered pair programmer using Groq LLM and AST analysis for VS Code capable of automatically detecting bugs, security risks, and bad practices across 6 programming languages with inline diagnostics, hover explanations, and one-click Quick Fixes.",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "publisher": "Krishna11-cell",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Krishna11-cell/ai-pair-programmer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Krishna11-cell/ai-pair-programmer/issues"
+  },
   "engines": {
     "vscode": "^1.110.0"
   },
