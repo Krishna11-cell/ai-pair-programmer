@@ -160,42 +160,26 @@ Active for: **JavaScript, TypeScript, Python, Java, C++, C**
 
 ## Installation
 
+### VS Code Marketplace (Recommended)
+1. Open **VS Code**
+2. Go to **Extensions** (`Ctrl+Shift+X`)
+3. Search for **CodeCritiq**
+4. Click **Install**
+5. Set your [Groq API key](https://console.groq.com/) in the extension settings
+
+Or install via command line:
+```bash
+code --install-extension Krishna11-cell.ai-pair-programmer
+```
+
+### From VSIX File
+Download the latest `.vsix` from the [Releases](https://github.com/Krishna11-cell/ai-pair-programmer/releases) page, then:
+1. VS Code → Extensions → `...` → **Install from VSIX...**
+2. Select the downloaded `.vsix` file
+
 ### Prerequisites
 - [VS Code](https://code.visualstudio.com/) v1.110.0 or higher
-- [Node.js](https://nodejs.org/) 18+
-- A [Groq API key](https://console.groq.com/) (free tier available)
-
-### Steps
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Krishna11-cell/ai-pair-programmer.git
-   cd ai-pair-programmer
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Configure your API key**
-   ```bash
-   cp .env.txt .env
-   ```
-   Then edit `.env` and add your Groq API key:
-   ```
-   GROQ_API_KEY=gsk_your_api_key_here
-   ```
-
-4. **Compile the extension**
-   ```bash
-   npm run compile
-   ```
-
-5. **Run in VS Code**
-   - Press `F5` to open a new Extension Development Host window
-   - Open any supported file (`.js`, `.ts`, `.py`, `.java`, `.cpp`, `.c`)
-   - Save the file to trigger a review
+- [Groq API key](https://console.groq.com/) (free tier available)
 
 ---
 
@@ -220,6 +204,18 @@ Reviews happen **automatically on save**. The extension:
 ---
 
 ## Development
+
+For contributors who want to build from source:
+
+```bash
+git clone https://github.com/Krishna11-cell/ai-pair-programmer.git
+cd ai-pair-programmer
+npm install
+cp .env.txt .env  # add your GROQ_API_KEY
+npm run compile
+```
+
+Then press `F5` in VS Code to launch an Extension Development Host.
 
 ### Project Structure
 ```
