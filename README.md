@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>AI Pair Programmer</h1>
+  <h1>CodeCritiq</h1>
   <p>
     <strong>An AI-powered VS Code extension that reviews your code in real-time, detects bugs, suggests fixes, and learns from your mistakes.</strong>
   </p>
@@ -26,7 +26,7 @@
 
 ## Overview
 
-**AI Pair Programmer** is a VS Code extension that acts as your automated code review partner. Built with **Groq's LLM (llama-3.3-70b-versatile)** and **Babel AST parsing**, it:
+**CodeCritiq** is a VS Code extension that acts as your automated code review partner. Built with **Groq's LLM (llama-3.3-70b-versatile)** and **Babel AST parsing**, it:
 
 - Analyzes your code **automatically on every save**
 - Detects **bugs, performance issues, security risks, readability problems, and architectural flaws**

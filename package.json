@@ -1,8 +1,8 @@
 {
   "name": "ai-pair-programmer",
-  "displayName": "ai-pair-programmer",
+  "displayName": "CodeCritiq",
   "description": "Built an AI-powered pair programmer using Groq LLM and AST analysis for VS Code capable of automatically detecting bugs, security risks, and bad practices across 6 programming languages with inline diagnostics, hover explanations, and one-click Quick Fixes.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "Krishna11-cell",
   "repository": {
     "type": "git",

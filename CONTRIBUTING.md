@@ -1,4 +1,4 @@
-# Contributing to AI Pair Programmer
+# Contributing to CodeCritiq
 
 We love contributions! Here's how you can help make this project better.
 

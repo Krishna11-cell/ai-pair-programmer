@@ -2,7 +2,7 @@
 
 ## System Overview
 
-AI Pair Programmer follows a **multi-layer pipeline architecture** within the VS Code extension host. Each layer serves a distinct purpose and the pipeline degrades gracefully if any layer fails.
+CodeCritiq follows a **multi-layer pipeline architecture** within the VS Code extension host. Each layer serves a distinct purpose and the pipeline degrades gracefully if any layer fails.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐

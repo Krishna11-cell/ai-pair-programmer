@@ -2,7 +2,7 @@
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability in AI Pair Programmer, please do NOT open a public issue. Instead, report it privately by contacting the repository owner through GitHub.
+If you discover a security vulnerability in CodeCritiq, please do NOT open a public issue. Instead, report it privately by contacting the repository owner through GitHub.
 
 Please include:
 - Description of the vulnerability
