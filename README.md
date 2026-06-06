@@ -177,8 +177,20 @@ Download the latest `.vsix` from the [Releases](https://github.com/Krishna11-cel
 1. VS Code → Extensions → `...` → **Install from VSIX...**
 2. Select the downloaded `.vsix` file
 
+### Build from Source
+```bash
+git clone https://github.com/Krishna11-cell/ai-pair-programmer.git
+cd ai-pair-programmer
+npm install
+cp .env.txt .env   # add your GROQ_API_KEY
+npm run compile
+code .
+```
+Press `F5` in VS Code to launch an Extension Development Host window.
+
 ### Prerequisites
 - [VS Code](https://code.visualstudio.com/) v1.110.0 or higher
+- [Node.js](https://nodejs.org/) 18+ (only needed for building from source)
 - [Groq API key](https://console.groq.com/) (free tier available)
 
 ---
@@ -204,18 +216,6 @@ Reviews happen **automatically on save**. The extension:
 ---
 
 ## Development
-
-For contributors who want to build from source:
-
-```bash
-git clone https://github.com/Krishna11-cell/ai-pair-programmer.git
-cd ai-pair-programmer
-npm install
-cp .env.txt .env  # add your GROQ_API_KEY
-npm run compile
-```
-
-Then press `F5` in VS Code to launch an Extension Development Host.
 
 ### Project Structure
 ```
