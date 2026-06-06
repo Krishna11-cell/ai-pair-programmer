@@ -1,6 +1,5 @@
 import * as dotenv from 'dotenv';
 dotenv.config({ path: require('path').resolve(__dirname, '../../.env') });
-console.log("ENV KEY:", process.env.GROQ_API_KEY);
 
 import Groq from "groq-sdk";
 
